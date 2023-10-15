@@ -44,10 +44,10 @@ const Product = () => {
     </div>
 
 
-   <div className="flex gap-10 justify-center items-center">
+   <div className="grid grid-cols-2 sm:grid-cols-3  xl:grid-cols-5 gap-7 px-4 md:px-8 xl:px-14">
    <button className="border-2 border-purple-500 px-8  hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>setProducts(products)}>All </button>
-   <button className="border-2 border-purple-500 px-8 hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>filterItems("men's clothing")}>Men's collection </button>
-    <button className="border-2 border-purple-500 px-8 hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>filterItems("women's clothing")}>Women's collection </button>
+   <button className="border-2 border-purple-500 px-8 hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>filterItems("men's clothing")}>Men's</button>
+    <button className="border-2 border-purple-500 px-8 hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>filterItems("women's clothing")}>Women's</button>
     <button className="border-2 border-purple-500 px-8 hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>filterItems("jewelery")}>Jewellery </button>
     <button className="border-2 border-purple-500 px-8 hover:bg-purple-500 rounded-md hover:text-white" onClick={()=>filterItems("electronics")}>Electronics </button>
    

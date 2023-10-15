@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../store/cartSlice";
+import { remove, increase , decrease, clearCart} from "../store/cartSlice";
 const MyBag = () => {
   const products = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -9,9 +9,23 @@ const MyBag = () => {
     dispatch(remove(product));
     console.log(product);
   };
+
+  const handleIncrease = (product) => {
+    dispatch(increase(product));
+    console.log(product);
+  };
+  const handledecrease = (product) => {
+    dispatch(decrease(product));
+    console.log(product);
+  };
+
+  const handleClear=(product)=>{
+    dispatch(clearCart(product))
+  }
+
   return (
     <div>
-      <h1 className="text-purple-400 text-xl flex  justify-center items-center p-4">
+      <h1 className="text-purple-800 text-xl flex  justify-center items-center p-4 animate-pulse">
         My bag
       </h1>
 
@@ -44,9 +58,9 @@ const MyBag = () => {
                     <div className="w-full h-full flex justify-center items-center flex-col">
                       <p className="text-sky-300">Quantity</p>
                       <div className="flex gap-4">
-                        <button>-</button>
+                        <button onClick={() => handledecrease(product)}>-</button>
                         <p className="font-semibold">{product.cartQuantity}</p>
-                        <button>+</button>
+                        <button   onClick={() => handleIncrease(product)}>+</button>
                       </div>
                     </div>
 
@@ -63,7 +77,7 @@ const MyBag = () => {
                     </div>
 
                     <button
-                      className="px-10 bg-red-400 py-2 rounded-xl"
+                      className="px-10 bg-red-600 py-2 hover:bg-black rounded-xl"
                       onClick={() => handleRemove(product)}
                     >
                       Remove
@@ -73,7 +87,7 @@ const MyBag = () => {
               })}
 
               <div>
-                <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-purple-600">
+                <button className="bg-red-500 text-white px-6 py-2 rounded hover:bg-purple-600" onClick={()=>handleClear()}>
                   Clear Cart
                 </button>
               </div>
